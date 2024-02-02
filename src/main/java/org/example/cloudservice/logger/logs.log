@@ -1,0 +1,206 @@
+2024-02-03 01:14:21,644 INFO [main] org.testcontainers.images.PullPolicy: Image pull policy will be performed by: DefaultPullPolicy()
+2024-02-03 01:14:21,671 INFO [main] org.testcontainers.utility.ImageNameSubstitutor: Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-02-03 01:14:22,157 INFO [main] org.testcontainers.dockerclient.DockerClientProviderStrategy: Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-02-03 01:14:22,816 INFO [main] org.testcontainers.dockerclient.DockerClientProviderStrategy: Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-02-03 01:14:22,818 INFO [main] org.testcontainers.DockerClientFactory: Docker host IP address is localhost
+2024-02-03 01:14:22,843 INFO [main] org.testcontainers.DockerClientFactory: Connected to docker: 
+  Server Version: 25.0.2
+  API Version: 1.44
+  Operating System: Docker Desktop
+  Total Memory: 2916 MB
+2024-02-03 01:14:22,875 INFO [main] org.testcontainers.containers.GenericContainer: Creating container for image: testcontainers/ryuk:0.5.1
+2024-02-03 01:14:45,010 INFO [main] org.testcontainers.utility.RegistryAuthLocator: Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-02-03 01:14:46,235 INFO [main] org.testcontainers.containers.GenericContainer: Container testcontainers/ryuk:0.5.1 is starting: c8bc31bf8b9ebbc904b299dcf8661c7bc0f89957d925f4b44094ad49b4ca73d4
+2024-02-03 01:14:48,679 INFO [main] org.testcontainers.containers.GenericContainer: Container testcontainers/ryuk:0.5.1 started in PT25.8040535S
+2024-02-03 01:14:48,728 INFO [main] org.testcontainers.utility.RyukResourceReaper: Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-02-03 01:14:48,728 INFO [main] org.testcontainers.DockerClientFactory: Checking the system...
+2024-02-03 01:14:48,729 INFO [main] org.testcontainers.DockerClientFactory: ✔︎ Docker server version should be at least 1.6.0
+2024-02-03 01:14:48,743 INFO [main] org.testcontainers.containers.GenericContainer: Creating container for image: postgres:latest
+2024-02-03 01:14:48,987 INFO [main] org.testcontainers.containers.GenericContainer: Container postgres:latest is starting: 8ca463e57c80e952fbe78c5c8b697119598892b536f8cad1bf6f3a1cfae3b4cd
+2024-02-03 01:14:53,647 INFO [main] org.testcontainers.containers.GenericContainer: Container postgres:latest started in PT4.904474S
+2024-02-03 01:14:53,649 INFO [main] org.testcontainers.containers.JdbcDatabaseContainer: Container is started (JDBC URL: jdbc:postgresql://localhost:51859/test?loggerLevel=OFF)
+2024-02-03 01:14:53,803 INFO [main] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [org.example.cloudservice.JdDwCloudServiceApplicationTests]: JdDwCloudServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-02-03 01:14:55,615 INFO [main] org.springframework.boot.test.context.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration org.example.cloudservice.CloudServiceApplication for test class org.example.cloudservice.JdDwCloudServiceApplicationTests
+2024-02-03 01:14:56,834 INFO [background-preinit] org.hibernate.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-02-03 01:14:56,911 INFO [main] org.springframework.boot.StartupInfoLogger: Starting JdDwCloudServiceApplicationTests using Java 20.0.1 with PID 15300 (started by Zhost in C:\Users\Zhost\IdeaProjects\Netology\JD_DW_CloudService)
+2024-02-03 01:14:56,913 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2024-02-03 01:15:02,316 INFO [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-03 01:15:02,419 INFO [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 88 ms. Found 2 JPA repository interfaces.
+2024-02-03 01:15:03,108 WARN [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [annotationActionEndpointMapping] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-02-03 01:15:03,168 INFO [main] org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping: Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2024-02-03 01:15:04,193 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port 0 (http)
+2024-02-03 01:15:04,217 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-02-03 01:15:04,223 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2024-02-03 01:15:04,224 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-02-03 01:15:04,351 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2024-02-03 01:15:04,352 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 7404 ms
+2024-02-03 01:15:04,987 INFO [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-02-03 01:15:06,299 INFO [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64829470
+2024-02-03 01:15:06,301 INFO [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-02-03 01:15:07,205 INFO [main] liquibase.logging.core.JavaLogger: Creating database history table with name: public.databasechangelog
+2024-02-03 01:15:07,360 INFO [main] liquibase.logging.core.JavaLogger: Reading from public.databasechangelog
+2024-02-03 01:15:07,464 INFO [main] liquibase.logging.core.JavaLogger: Successfully acquired change log lock
+2024-02-03 01:15:07,468 INFO [main] liquibase.logging.core.JavaLogger: Using deploymentId: 6912107467
+2024-02-03 01:15:07,472 INFO [main] liquibase.logging.core.JavaLogger: Reading from public.databasechangelog
+2024-02-03 01:15:07,536 INFO [main] liquibase.logging.core.JavaLogger: Custom SQL executed
+2024-02-03 01:15:07,539 INFO [main] liquibase.logging.core.JavaLogger: ChangeSet db.changelog/migrations/import_v1.sql::raw::includeAll ran successfully in 32ms
+2024-02-03 01:15:07,557 INFO [main] liquibase.logging.core.JavaLogger: Custom SQL executed
+2024-02-03 01:15:07,559 INFO [main] liquibase.logging.core.JavaLogger: ChangeSet db.changelog/migrations/import_v2.sql::raw::includeAll ran successfully in 9ms
+2024-02-03 01:15:07,568 INFO [main] liquibase.logging.core.JavaLogger: UPDATE SUMMARY
+2024-02-03 01:15:07,568 INFO [main] liquibase.logging.core.JavaLogger: Run:                          2
+2024-02-03 01:15:07,568 INFO [main] liquibase.logging.core.JavaLogger: Previously run:               0
+2024-02-03 01:15:07,568 INFO [main] liquibase.logging.core.JavaLogger: Filtered out:                 0
+2024-02-03 01:15:07,569 INFO [main] liquibase.logging.core.JavaLogger: -------------------------------
+2024-02-03 01:15:07,569 INFO [main] liquibase.logging.core.JavaLogger: Total change sets:            2
+2024-02-03 01:15:07,569 INFO [main] liquibase.logging.core.JavaLogger: Update summary generated
+2024-02-03 01:15:07,571 INFO [main] liquibase.logging.core.JavaLogger: Update command completed successfully.
+2024-02-03 01:15:07,577 INFO [main] liquibase.logging.core.JavaLogger: Successfully released change log lock
+2024-02-03 01:15:07,580 INFO [main] liquibase.logging.core.JavaLogger: Command execution complete
+2024-02-03 01:15:07,848 INFO [main] org.hibernate.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-03 01:15:07,972 INFO [main] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-03 01:15:08,029 INFO [main] org.hibernate.cache.internal.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-02-03 01:15:08,388 INFO [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-03 01:15:08,471 WARN [main] org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-02-03 01:15:10,335 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-03 01:15:10,339 INFO [main] org.springframework.orm.jpa.AbstractEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-03 01:15:11,139 INFO [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory: Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-03 01:15:11,780 WARN [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-03 01:15:11,880 WARN [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration: 
+
+Using generated security password: 83ecec9c-a7e4-4895-a897-6d37c57c3cbc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-02-03 01:15:12,836 INFO [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-02-03 01:15:12,956 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1fe8a2fc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a93641e, org.springframework.security.web.context.SecurityContextHolderFilter@7b7bfa82, org.springframework.security.web.header.HeaderWriterFilter@46eb5c0c, org.springframework.web.filter.CorsFilter@cc64e22, org.springframework.security.web.authentication.logout.LogoutFilter@397fd951, org.example.cloudservice.security.JwtTokenFilter@4c91f5bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5cdd90c4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c95440d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d5bfb1a, org.springframework.security.web.session.SessionManagementFilter@73605fde, org.springframework.security.web.access.ExceptionTranslationFilter@2b82254b, org.springframework.security.web.access.intercept.AuthorizationFilter@464aff63]
+2024-02-03 01:15:14,055 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring TestDispatcherServlet ''
+2024-02-03 01:15:14,056 INFO [main] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet ''
+2024-02-03 01:15:14,058 INFO [main] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 2 ms
+2024-02-03 01:15:14,245 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-auto-1"]
+2024-02-03 01:15:14,426 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port 51870 (http) with context path ''
+2024-02-03 01:15:14,452 INFO [main] org.springframework.boot.StartupInfoLogger: Started JdDwCloudServiceApplicationTests in 18.64 seconds (process running for 54.64)
+2024-02-03 01:15:16,575 INFO [http-nio-auto-1-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-03 01:15:16,575 INFO [http-nio-auto-1-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2024-02-03 01:15:16,577 INFO [http-nio-auto-1-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 2 ms
+2024-02-03 01:15:20,487 INFO [SpringApplicationShutdownHook] org.springframework.orm.jpa.AbstractEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-03 01:15:20,491 INFO [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-02-03 01:15:20,497 INFO [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-02-03 01:15:35,591 INFO [background-preinit] org.hibernate.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-02-03 01:15:35,645 INFO [main] org.springframework.boot.StartupInfoLogger: Starting CloudServiceApplication using Java 20.0.1 with PID 10200 (C:\Users\Zhost\IdeaProjects\Netology\JD_DW_CloudService\target\classes started by Zhost in C:\Users\Zhost\IdeaProjects\Netology\JD_DW_CloudService)
+2024-02-03 01:15:35,646 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2024-02-03 01:15:37,016 INFO [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-03 01:15:37,087 INFO [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 62 ms. Found 2 JPA repository interfaces.
+2024-02-03 01:15:37,536 WARN [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [annotationActionEndpointMapping] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-02-03 01:15:37,580 INFO [main] org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping: Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2024-02-03 01:15:38,189 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-02-03 01:15:38,202 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-03 01:15:38,204 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2024-02-03 01:15:38,205 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-02-03 01:15:38,287 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2024-02-03 01:15:38,288 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2592 ms
+2024-02-03 01:15:38,812 INFO [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-02-03 01:15:39,031 INFO [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@63c84d31
+2024-02-03 01:15:39,032 INFO [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-02-03 01:15:39,471 INFO [main] liquibase.logging.core.JavaLogger: Reading from public.databasechangelog
+2024-02-03 01:15:39,544 INFO [main] liquibase.logging.core.JavaLogger: Reading from public.databasechangelog
+2024-02-03 01:15:39,568 INFO [main] liquibase.logging.core.JavaLogger: UPDATE SUMMARY
+2024-02-03 01:15:39,569 INFO [main] liquibase.logging.core.JavaLogger: Run:                          0
+2024-02-03 01:15:39,569 INFO [main] liquibase.logging.core.JavaLogger: Previously run:               2
+2024-02-03 01:15:39,569 INFO [main] liquibase.logging.core.JavaLogger: Filtered out:                 0
+2024-02-03 01:15:39,569 INFO [main] liquibase.logging.core.JavaLogger: -------------------------------
+2024-02-03 01:15:39,569 INFO [main] liquibase.logging.core.JavaLogger: Total change sets:            2
+2024-02-03 01:15:39,569 INFO [main] liquibase.logging.core.JavaLogger: Update summary generated
+2024-02-03 01:15:39,597 INFO [main] liquibase.logging.core.JavaLogger: Successfully released change log lock
+2024-02-03 01:15:39,600 INFO [main] liquibase.logging.core.JavaLogger: Command execution complete
+2024-02-03 01:15:39,736 INFO [main] org.hibernate.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-03 01:15:39,819 INFO [main] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-03 01:15:39,857 INFO [main] org.hibernate.cache.internal.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-02-03 01:15:40,122 INFO [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-03 01:15:40,183 WARN [main] org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-02-03 01:15:41,282 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-03 01:15:41,286 INFO [main] org.springframework.orm.jpa.AbstractEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-03 01:15:41,782 INFO [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory: Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-03 01:15:41,875 WARN [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-03 01:15:41,974 WARN [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration: 
+
+Using generated security password: 816b3b75-04bf-4519-99a8-35d64e93059a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-02-03 01:15:42,479 INFO [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-02-03 01:15:42,594 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@34b69a14, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@210b4145, org.springframework.security.web.context.SecurityContextHolderFilter@1c027237, org.springframework.security.web.header.HeaderWriterFilter@2aafd790, org.springframework.web.filter.CorsFilter@19cb3f, org.springframework.security.web.authentication.logout.LogoutFilter@3746766b, org.example.cloudservice.security.JwtTokenFilter@1a345298, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69e636cc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@39e3da5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@738a1324, org.springframework.security.web.session.SessionManagementFilter@6d7e2c53, org.springframework.security.web.access.ExceptionTranslationFilter@41d34a11, org.springframework.security.web.access.intercept.AuthorizationFilter@130901fd]
+2024-02-03 01:15:43,570 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8081"]
+2024-02-03 01:15:43,577 WARN [main] org.springframework.context.support.AbstractApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-02-03 01:15:43,581 INFO [main] org.springframework.orm.jpa.AbstractEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-03 01:15:43,583 INFO [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-02-03 01:15:43,590 INFO [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-02-03 01:15:43,613 INFO [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger: 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-02-03 01:15:43,633 ERROR [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter: 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2024-02-03 01:16:24,362 INFO [background-preinit] org.hibernate.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-02-03 01:16:24,412 INFO [main] org.springframework.boot.StartupInfoLogger: Starting CloudServiceApplication using Java 20.0.1 with PID 1392 (C:\Users\Zhost\IdeaProjects\Netology\JD_DW_CloudService\target\classes started by Zhost in C:\Users\Zhost\IdeaProjects\Netology\JD_DW_CloudService)
+2024-02-03 01:16:24,413 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2024-02-03 01:16:25,623 INFO [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-03 01:16:25,692 INFO [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
+2024-02-03 01:16:26,037 WARN [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [annotationActionEndpointMapping] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-02-03 01:16:26,063 INFO [main] org.springframework.ws.soap.addressing.server.AbstractAddressingEndpointMapping: Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2024-02-03 01:16:26,680 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-02-03 01:16:26,692 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-03 01:16:26,694 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2024-02-03 01:16:26,695 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-02-03 01:16:26,764 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2024-02-03 01:16:26,765 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2303 ms
+2024-02-03 01:16:27,133 INFO [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-02-03 01:16:27,312 INFO [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9f2376f
+2024-02-03 01:16:27,314 INFO [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-02-03 01:16:27,777 INFO [main] liquibase.logging.core.JavaLogger: Reading from public.databasechangelog
+2024-02-03 01:16:27,819 INFO [main] liquibase.logging.core.JavaLogger: Reading from public.databasechangelog
+2024-02-03 01:16:27,847 INFO [main] liquibase.logging.core.JavaLogger: UPDATE SUMMARY
+2024-02-03 01:16:27,848 INFO [main] liquibase.logging.core.JavaLogger: Run:                          0
+2024-02-03 01:16:27,848 INFO [main] liquibase.logging.core.JavaLogger: Previously run:               2
+2024-02-03 01:16:27,849 INFO [main] liquibase.logging.core.JavaLogger: Filtered out:                 0
+2024-02-03 01:16:27,849 INFO [main] liquibase.logging.core.JavaLogger: -------------------------------
+2024-02-03 01:16:27,849 INFO [main] liquibase.logging.core.JavaLogger: Total change sets:            2
+2024-02-03 01:16:27,849 INFO [main] liquibase.logging.core.JavaLogger: Update summary generated
+2024-02-03 01:16:27,888 INFO [main] liquibase.logging.core.JavaLogger: Successfully released change log lock
+2024-02-03 01:16:27,891 INFO [main] liquibase.logging.core.JavaLogger: Command execution complete
+2024-02-03 01:16:28,001 INFO [main] org.hibernate.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-03 01:16:28,095 INFO [main] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-03 01:16:28,135 INFO [main] org.hibernate.cache.internal.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-02-03 01:16:28,412 INFO [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-03 01:16:28,466 WARN [main] org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-02-03 01:16:29,576 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-03 01:16:29,580 INFO [main] org.springframework.orm.jpa.AbstractEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-03 01:16:30,075 INFO [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory: Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-03 01:16:30,210 WARN [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-03 01:16:30,256 WARN [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration: 
+
+Using generated security password: 98f912d2-6faf-44d0-8902-aba6e07f8c5d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-02-03 01:16:30,704 INFO [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-02-03 01:16:30,789 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4044f07b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f8c319, org.springframework.security.web.context.SecurityContextHolderFilter@2fad470b, org.springframework.security.web.header.HeaderWriterFilter@427c8f6, org.springframework.web.filter.CorsFilter@5c190662, org.springframework.security.web.authentication.logout.LogoutFilter@3e0575a2, org.example.cloudservice.security.JwtTokenFilter@4b98225c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27959c4e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61b3de5b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d6de24e, org.springframework.security.web.session.SessionManagementFilter@3701acee, org.springframework.security.web.access.ExceptionTranslationFilter@37acf9b1, org.springframework.security.web.access.intercept.AuthorizationFilter@7d9587b3]
+2024-02-03 01:16:31,596 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8081"]
+2024-02-03 01:16:31,622 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-02-03 01:16:31,639 INFO [main] org.springframework.boot.StartupInfoLogger: Started CloudServiceApplication in 7.673 seconds (process running for 8.868)
+2024-02-03 01:16:32,598 INFO [RMI TCP Connection(3)-192.168.1.140] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-03 01:16:32,599 INFO [RMI TCP Connection(3)-192.168.1.140] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2024-02-03 01:16:32,602 INFO [RMI TCP Connection(3)-192.168.1.140] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 2 ms
+2024-02-03 01:16:47,542 INFO [SpringApplicationShutdownHook] org.springframework.orm.jpa.AbstractEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-03 01:16:47,546 INFO [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-02-03 01:16:47,550 INFO [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.

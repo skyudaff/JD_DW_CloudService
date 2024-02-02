@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: migrations/import_v1.sql
+      relativeToChangeLogFile: true
+  - include:
+      file: migrations/import_v2.sql
+      relativeToChangeLogFile: true
