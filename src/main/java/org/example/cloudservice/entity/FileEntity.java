@@ -2,6 +2,7 @@ package org.example.cloudservice.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "files", schema = "public")
+@Where(clause = "is_deleted <> true")
 public class FileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +37,7 @@ public class FileEntity {
     @Column(nullable = false)
     private LocalDateTime createdDate;
 
-    private boolean isDelete = false;
+    private boolean isDeleted = false;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude

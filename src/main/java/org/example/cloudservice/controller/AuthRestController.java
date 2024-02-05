@@ -12,19 +12,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequiredArgsConstructor
-public class AuthController {
+public class AuthRestController {
     private final AuthServiceImpl authService;
 
     @PostMapping("/login")
-    public TokenDto login(@RequestBody UserDto user) {
-        return authService.login(user);
+    public ResponseEntity<TokenDto> login(@RequestBody UserDto user) {
+        return ResponseEntity.ok(authService.login(user));
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<?> logout(@RequestHeader("auth-token") String authToken,
+    public ResponseEntity<Void> logout(@RequestHeader("auth-token") String authToken,
                                     HttpServletRequest request, HttpServletResponse response) {
         return (authService.logout(authToken, request, response))
                 ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();

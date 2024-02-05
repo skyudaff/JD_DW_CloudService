@@ -18,7 +18,7 @@ create table files
     file_bytes   OID          not null,
     type         varchar(255) not null,
     created_date timestamp    not null default now(),
-    is_delete    boolean               default false,
+    is_deleted   boolean               default false,
     user_id      bigint references files (id)
 );
 -- rollback drop table files;

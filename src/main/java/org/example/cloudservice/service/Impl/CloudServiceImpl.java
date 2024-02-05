@@ -3,8 +3,8 @@ package org.example.cloudservice.service.Impl;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.example.cloudservice.dto.FileDto;
 import org.example.cloudservice.entity.FileEntity;
 import org.example.cloudservice.entity.UserEntity;
@@ -20,11 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -41,47 +39,71 @@ public class CloudServiceImpl implements CloudService {
     @Override
     public void uploadFile(String fileName, @NonNull MultipartFile file) {
         if (file.isEmpty()) {
-            log.error("File not attached: {}", fileName);
-            throw new ErrorInputDataException(messageSource.getMessage("file.upload.error", null,
-                    LocaleContextHolder.getLocale()), 400);
+            handleEmptyFile(fileName);
+            return;
         }
 
         Long userId = jwtProvider.getAuthorizedUser().getId();
 
         Optional<FileEntity> existingFile = fileRepository.findFileEntityByFileName(fileName);
         if (existingFile.isPresent()) {
-            FileEntity fileEntity = existingFile.get();
-            if (fileEntity.isDelete()) {
-                fileEntity.setDelete(false);
-                fileRepository.save(fileEntity);
-                log.info("File {} marked for deletion, updated to not deleted", fileName);
-            } else {
-                log.error("File with name {} already exists. Please upload another file", fileName);
-                throw new ErrorInputDataException(messageSource.getMessage("file.uploaded.error", null,
-                        LocaleContextHolder.getLocale()), userId);
-            }
+            handleExistingFile(fileName, userId, existingFile.get());
         } else {
-            try {
-                String hash = calculateFileHash(file);
-                byte[] fileBytes = file.getBytes();
-
-                fileRepository.save(FileEntity.builder()
-                        .hash(hash)
-                        .fileName(fileName)
-                        .type(file.getContentType())
-                        .size(file.getSize())
-                        .fileBytes(fileBytes)
-                        .createdDate(LocalDateTime.now())
-                        .user(UserEntity.builder().id(userId).build())
-                        .build());
-
-                log.info("File {} created and saved to storage", fileName);
-            } catch (IOException e) {
-                log.error("File processing error: {}", fileName, e);
-                throw new ErrorInputDataException(messageSource.getMessage("file.process.error", null,
-                        LocaleContextHolder.getLocale()), userId);
-            }
+            handleNewFile(fileName, userId, file);
         }
+    }
+
+    private void handleEmptyFile(String fileName) {
+        log.error("File not attached: {}", fileName);
+        throw new ErrorInputDataException(
+                messageSource.getMessage("file.upload.error", null, LocaleContextHolder.getLocale()), 400);
+    }
+
+    private void handleExistingFile(String fileName, Long userId, FileEntity existingFile) {
+        if (existingFile.isDeleted()) {
+            handleDeletedFile(fileName, existingFile);
+        } else {
+            handleDuplicateFile(fileName, userId);
+        }
+    }
+
+    private void handleDeletedFile(String fileName, FileEntity deletedFile) {
+        deletedFile.setDeleted(false);
+        fileRepository.save(deletedFile);
+        log.info("File {} marked for deletion, updated to not deleted", fileName);
+    }
+
+    private void handleDuplicateFile(String fileName, Long userId) {
+        log.error("File with name {} already exists. Please upload another file", fileName);
+        throw new ErrorInputDataException(
+                messageSource.getMessage("file.uploaded.error", null, LocaleContextHolder.getLocale()), userId);
+    }
+
+    private void handleNewFile(String fileName, Long userId, MultipartFile file) {
+        try {
+            String hash = calculateFileHash(file);
+            byte[] fileBytes = file.getBytes();
+
+            fileRepository.save(FileEntity.builder()
+                    .hash(hash)
+                    .fileName(fileName)
+                    .type(file.getContentType())
+                    .size(file.getSize())
+                    .fileBytes(fileBytes)
+                    .createdDate(LocalDateTime.now())
+                    .user(UserEntity.builder().id(userId).build())
+                    .build());
+
+            log.info("File {} created and saved to storage", fileName);
+        } catch (IOException e) {
+            handleFileProcessingError(fileName, userId);
+        }
+    }
+
+    private void handleFileProcessingError(String fileName, Long userId) {
+        log.error("File processing error: {}", fileName);
+        throw new ErrorInputDataException(
+                messageSource.getMessage("file.process.error", null, LocaleContextHolder.getLocale()), userId);
     }
 
 
@@ -90,7 +112,7 @@ public class CloudServiceImpl implements CloudService {
         Long userId = jwtProvider.getAuthorizedUser().getId();
 
         FileEntity file = getFileByFileName(fileName, userId);
-        file.setDelete(true);
+        file.setDeleted(true);
         file.setCreatedDate(LocalDateTime.now());
 
         log.info("Set flag isDelete on file from storage " +
@@ -134,36 +156,33 @@ public class CloudServiceImpl implements CloudService {
         Long userId = jwtProvider.getAuthorizedUser().getId();
 
         List<FileEntity> filesByUserIdWithLimit = fileRepository.findFilesByUserIdWithLimit(userId, limit);
-        return filesByUserIdWithLimit.stream().filter(file -> !file.isDelete())
-                .map(file -> FileDto.builder()
-                        .fileName(file.getFileName())
-                        .hash(file.getHash())
-                        .type(file.getType())
-                        .date(file.getCreatedDate())
-                        .size(file.getSize())
-                        .fileBytes(file.getFileBytes())
-                        .build())
+        return filesByUserIdWithLimit.stream()
+                .filter(file -> !file.isDeleted())
+                .map(this::mapFileEntityToDto)
                 .collect(Collectors.toList());
     }
 
-    @SneakyThrows
-    private String calculateFileHash(MultipartFile file) {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
+    private FileDto mapFileEntityToDto(FileEntity file) {
+        return FileDto.builder()
+                .fileName(file.getFileName())
+                .hash(file.getHash())
+                .type(file.getType())
+                .date(file.getCreatedDate())
+                .size(file.getSize())
+                .fileBytes(file.getFileBytes())
+                .build();
+    }
 
-        try (InputStream fis = file.getInputStream();
-             DigestInputStream dis = new DigestInputStream(fis, md)) {
-            byte[] buffer = new byte[1024];
+    private String calculateFileHash(MultipartFile file) throws IOException {
+        MessageDigest md = DigestUtils.getSha256Digest();
+        try (InputStream fis = file.getInputStream()) {
+            byte[] buffer = new byte[8192];
             int read;
-            while ((read = dis.read(buffer)) != -1) {
+            while ((read = fis.read(buffer)) != -1) {
                 md.update(buffer, 0, read);
             }
         }
-
-        StringBuilder sb = new StringBuilder();
-        for (byte b : Objects.requireNonNull(md.digest())) {
-            sb.append(String.format("%02x", b));
-        }
-        return sb.toString();
+        return DigestUtils.sha256Hex(md.digest());
     }
 
     private FileEntity getFileByFileName(String fileName, Long userId) {

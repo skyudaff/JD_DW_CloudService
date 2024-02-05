@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+    <property name="logDirectory" value="${user.dir}/logs"/>
+
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <Pattern>
@@ -9,10 +11,10 @@
         </layout>
     </appender>
 
-    <appender name="FILE"   class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>src/main/java/org/example/cloudservice/logger/logs.log</file>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logDirectory}/app.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>src/main/java/org/example/cloudservice/logger/archive/app-%d{yyyy-MM-dd}.%i-logs.log</fileNamePattern>
+            <fileNamePattern>${logDirectory}/archive/app-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>5MB</maxFileSize>
         </rollingPolicy>
         <encoder>

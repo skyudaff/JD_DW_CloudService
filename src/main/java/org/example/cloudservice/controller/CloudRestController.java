@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.cloudservice.dto.FileDto;
 import org.example.cloudservice.service.Impl.CloudServiceImpl;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -18,23 +17,23 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/")
+@RequestMapping("/cloud")
 @PreAuthorize("hasAuthority('ROLE_USER')")
 @RequiredArgsConstructor
-public class CloudController {
+public class CloudRestController {
     private final CloudServiceImpl fileService;
 
     @PostMapping("file")
     public ResponseEntity<Void> handleUploadFile(@RequestParam("filename") String fileName,
                                                  @NotNull @RequestPart("file") MultipartFile file) {
         fileService.uploadFile(fileName, file);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("file")
     public ResponseEntity<Void> handleDeleteFile(@RequestParam("filename") String fileName) {
         fileService.deleteFile(fileName);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("file")
@@ -50,11 +49,11 @@ public class CloudController {
     @PutMapping("file")
     public ResponseEntity<Void> handleEditFileName(@RequestParam String filename, @RequestBody FileDto fileDTO) {
         fileService.editFileName(filename, fileDTO);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("list")
     public ResponseEntity<List<FileDto>> handleGetFileList(@Min(0) @RequestParam int limit) {
-        return new ResponseEntity<>(fileService.getFileList(limit), HttpStatus.OK);
+        return ResponseEntity.ok(fileService.getFileList(limit));
     }
 }

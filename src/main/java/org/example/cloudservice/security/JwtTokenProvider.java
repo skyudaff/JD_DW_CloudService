@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.cloudservice.config.JwtTokenConfig;
 import org.example.cloudservice.entity.UserEntity;
+import org.example.cloudservice.entity.UserRoles;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -37,7 +38,7 @@ public class JwtTokenProvider {
                 .atZone(ZoneId.systemDefault()).toInstant();
         Date accessExpiration = Date.from(accessExpirationInstant);
 
-        Set<UserEntity.Roles> roles = user.getRoles();
+        Set<UserRoles> roles = user.getRoles();
 
         return Jwts.builder()
                 .setId(String.valueOf(user.getId()))

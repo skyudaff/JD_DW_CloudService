@@ -3,6 +3,7 @@ package org.example.cloudservice.service.Impl;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.cloudservice.dto.UserDto;
+import org.example.cloudservice.entity.UserRoles;
 import org.example.cloudservice.security.JwtTokenProvider;
 import org.example.cloudservice.dto.TokenDto;
 import org.example.cloudservice.entity.UserEntity;
@@ -56,7 +57,7 @@ class AuthServiceImplTest {
                 .id(1L)
                 .login("admin@example.org")
                 .password("admin")
-                .roles(Collections.singleton(UserEntity.Roles.ROLE_USER))
+                .roles(Collections.singleton(UserRoles.ROLE_USER))
                 .build();
     }
 

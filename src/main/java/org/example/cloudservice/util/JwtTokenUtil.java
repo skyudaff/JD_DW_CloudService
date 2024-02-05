@@ -3,7 +3,7 @@ package org.example.cloudservice.util;
 import io.jsonwebtoken.Claims;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import org.example.cloudservice.entity.UserEntity.Roles;
+import org.example.cloudservice.entity.UserRoles;
 import org.example.cloudservice.security.JwtTokenAuth;
 
 import java.util.List;
@@ -19,10 +19,10 @@ public final class JwtTokenUtil {
         return jwtInfoToken;
     }
 
-    private static Set<Roles> getRoles(Claims claims) {
+    private static Set<UserRoles> getRoles(Claims claims) {
         List<String> roles = claims.get("roles", List.class);
         return roles.stream()
-                .map(Roles::valueOf)
+                .map(UserRoles::valueOf)
                 .collect(Collectors.toSet());
     }
 }

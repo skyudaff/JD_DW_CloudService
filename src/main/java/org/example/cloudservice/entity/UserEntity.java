@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
 
 import java.util.List;
 import java.util.Set;
@@ -36,18 +35,5 @@ public class UserEntity {
     @ElementCollection
     @Enumerated(EnumType.STRING)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"))
-    private Set<Roles> roles;
-
-    @RequiredArgsConstructor
-    public enum Roles implements GrantedAuthority {
-        ROLE_USER("ROLE_USER"),
-        ROLE_ADMIN("ROLE_ADMIN");
-
-        private final String value;
-
-        @Override
-        public String getAuthority() {
-            return value;
-        }
-    }
+    private Set<UserRoles> roles;
 }

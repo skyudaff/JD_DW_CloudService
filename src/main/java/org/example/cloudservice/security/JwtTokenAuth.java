@@ -2,7 +2,7 @@ package org.example.cloudservice.security;
 
 
 import lombok.Data;
-import org.example.cloudservice.entity.UserEntity.Roles;
+import org.example.cloudservice.entity.UserRoles;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -14,7 +14,7 @@ public class JwtTokenAuth implements Authentication {
     private boolean authenticated;
     private String username;
     private String firstName;
-    private Set<Roles> roles;
+    private Set<UserRoles> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -22,6 +22,9 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+    public static final String LOGIN_URL = "/login";
+    public static final String LOGOUT_URL = "/logout";
+
     private final JwtTokenFilter jwtTokenFilter;
 
     @Bean
@@ -30,12 +33,12 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/login").permitAll()
+                        .requestMatchers(LOGIN_URL).permitAll()
                         .anyRequest()
                         .authenticated()
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/logout")
+                        .logoutUrl(LOGOUT_URL)
                         .deleteCookies("JSESSIONID")
                         .clearAuthentication(true)
                         .invalidateHttpSession(true)

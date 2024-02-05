@@ -118,7 +118,7 @@ class CloudServiceImplTest {
         assertDoesNotThrow(() -> cloudService.deleteFile(FILE_NAME));
 
         // Assert
-        assertTrue(fileEntity.isDelete());
+        assertTrue(fileEntity.isDeleted());
         assertNotNull(fileEntity.getCreatedDate());
         verify(fileRepository, times(1)).save(any(FileEntity.class));
     }
