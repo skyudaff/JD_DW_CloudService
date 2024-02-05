@@ -37,11 +37,11 @@
 Эндпоинты:
 - POST http://localhost:8081/login
 - POST http://localhost:8081/logout
-- POST http://localhost:8081/file?filename=new.txt
-- DELETE http://localhost:8081/file?filename=new.txt
-- GET http://localhost:8081/file?filename=new.txt
-- PUT http://localhost:8081/file?filename=new.txt
-- GET http://localhost:8081/list?limit=3
+- POST http://localhost:8081/cloud/file?filename=new.txt
+- DELETE http://localhost:8081/cloud/file?filename=new.txt
+- GET http://localhost:8081/cloud/file?filename=new.txt
+- PUT http://localhost:8081/cloud/file?filename=new.txt
+- GET http://localhost:8081/cloud/list?limit=3
 
 
 
